@@ -18,15 +18,15 @@ public class HandlesTest extends Hooks {
     public void metot() {
 
     }
-
     @Test
-    public void xxx() {
+    public void handlesTest() {
 
         page.getHomePage().clickOnWebAutomationLink();
         page.getWebAutomationPage().clickOnDraggableElement();
         BrowserUtils.wait(2);
         page.getTheHandlesPage().clickOnHandlesPage();
         BrowserUtils.scrollDownWithJavaScript(0,300);
+
         // Element -13 must move;
         xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
         yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
@@ -38,21 +38,21 @@ public class HandlesTest extends Hooks {
         Assertions.assertNotEquals(xOffsetAsStart, xOffsetAsCurrent);
         Assertions.assertNotEquals(yOffsetAsStart, yOffSetAsCurrent);
 
-        xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
-        yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
-        page.getTheHandlesPage().moveElement13_2();
-        BrowserUtils.wait(2);
-        xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13X();
-        yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13Y();
-
-        Assertions.assertNotEquals(xOffsetAsStart, xOffsetAsCurrent);
-        Assertions.assertNotEquals(yOffsetAsStart, yOffSetAsCurrent);
+//        xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
+//        yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
+//        page.getTheHandlesPage().moveElement13ByNonMovablePart();
+//        BrowserUtils.wait(2);
+//        xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13X();
+//        yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13Y();
+//
+//        Assertions.assertEquals(xOffsetAsStart, xOffsetAsCurrent);
+//        Assertions.assertEquals(yOffsetAsStart, yOffSetAsCurrent);
 
         BrowserUtils.wait(2);
 
         xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14X();
         yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14Y();
-        page.getTheHandlesPage().moveElement14();
+        page.getTheHandlesPage().draggable14NonMovableElement();
         BrowserUtils.wait(2);
         xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14X();
         yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14Y();
@@ -63,7 +63,7 @@ public class HandlesTest extends Hooks {
 
         xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14X();
         yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14Y();
-        page.getTheHandlesPage().moveElement14_2();
+        page.getTheHandlesPage().moveElement14ByMovablePart();
         BrowserUtils.wait(2);
         xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14X();
         yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14Y();

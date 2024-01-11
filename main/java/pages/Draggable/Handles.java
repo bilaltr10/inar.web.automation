@@ -28,11 +28,11 @@ public class Handles extends BasePage {
 
 
     public void moveElement13() {
-        actions.dragAndDropBy(draggable13Element, 100, 100).perform();
+        actions.dragAndDropBy(draggable13MovableElement, 100, 100).perform();
     }
 
-    public void moveElement13_2() {
-        actions.dragAndDropBy(draggable13MovableElement, 100, 100).perform();
+    public void moveElement13ByNonMovablePart() {
+        actions.dragAndDropBy(draggable13Element, 100, 100).perform();
     }
 
     public int getLocationOfDraggable13X() {
@@ -44,11 +44,11 @@ public class Handles extends BasePage {
     }
 
 
-    public void moveElement14() {
+    public void draggable14NonMovableElement() {
         actions.dragAndDropBy(draggable14NonMovableElement, 100, 100).perform();
     }
 
-    public void moveElement14_2() {
+    public void moveElement14ByMovablePart() {
         actions.dragAndDropBy(draggable14MovableElement, 100, 100).perform();
     }
 

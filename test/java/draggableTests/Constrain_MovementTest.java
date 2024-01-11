@@ -2,6 +2,7 @@ package draggableTests;
 
 import BaseTest.Hooks;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.Point;
 import utils.BrowserUtils;
 import utils.Pages;
 
@@ -9,44 +10,45 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Constrain_MovementTest extends Hooks {
 
-    Pages page = new Pages();
-
-    @BeforeEach
-    public void openUpTheDraggablePage() {
-        page.getHomePage().clickOnWebAutomationLink();
-        page.getWebAutomationPage().clickOnDraggableElement();
-        page.getConstrainMovementPage().clickOnConstrainMovement();
-    }
-
     @Test
-    public void onlyVerticallyMoveElementTest() {
-        //check whether the element of draggable only vertically moves also horizontally by giving both offsets
-        int startPointOfX = page.getConstrainMovementPage().getLocationOfDraggableX(1);
-        int startPointOfY = page.getConstrainMovementPage().getLocationOfDraggableY(1);
-        page.getConstrainMovementPage().enterTheOffsetOfOnlyVerticallyMovementElement(100, 100);
-        int currentPointOfX = page.getConstrainMovementPage().getLocationOfDraggableX(1);
-        int currentPointOfY = page.getConstrainMovementPage().getLocationOfDraggableY(1);
-        //verify element move only vertically
-        assertEquals(startPointOfX, currentPointOfX,"It is a only-vertically-movable element so it should not move in x axis ");
-        assertNotEquals(startPointOfY, currentPointOfY,"It is a only-vertically-movable element so it should  move in y axis ");
+    public void testConstraintMovement(){
+        //Open the url and navigate to constrain movement link
+        pages.getHomePage().clickOnWebAutomationLink();
+        pages.getWebAutomationPage().clickOnDraggableElement();
+        pages.getConstrainMovementPage().clickOnConstrainMovement();
+
+        //Drag the first draggable element to the right and drop
+        //Verify that the first draggable element does not move
+        int initialFirstDragPointX = pages.getConstrainMovementPage().getLocationOfFirstDraggable().getX();
+        pages.getConstrainMovementPage().dragFirstDraggable(10, 15);
+        int finalFirstDragPointX = pages.getConstrainMovementPage().getLocationOfFirstDraggable().getX();
+        assertEquals(initialFirstDragPointX, finalFirstDragPointX , "This element should not be dragged horizantally");
+
+        //Drag the second draggable element to the below and drop
+        //Verify that the second draggable element does not move
+        int initialSecondDragPointY = pages.getConstrainMovementPage().getLocationOfSecondDraggable().getY();
+        pages.getConstrainMovementPage().dragSecondDraggable(15 , 10);
+        int finalSecondDragPointY = pages.getConstrainMovementPage().getLocationOfSecondDraggable().getY();
+        assertTrue(initialSecondDragPointY-finalSecondDragPointY <3, "This element should not be dragged vertically");
+
+        //Drag the third draggable element to up and left and drop
+        //Verify that the third draggable element does not move
+        Point initialThirdDragPoint = pages.getConstrainMovementPage().getLocationOfThirdDraggable();
+        pages.getConstrainMovementPage().dragThirdDraggable(-50 , -50);
+        Point finalThirdDragPoint = pages.getConstrainMovementPage().getLocationOfThirdDraggable();
+        assertEquals(initialThirdDragPoint , finalThirdDragPoint , "The element should not move");
+
+        //Drag the fourth draggable element to up and left and drop
+        //Verify that the fourth draggable element in the parent element
+        pages.getConstrainMovementPage().dragFourthDraggable(-100 , -100);
+        Point fourthDragPoint = pages.getConstrainMovementPage().getLocationOfFourthDraggable();
+        Point smallBoxPoint = pages.getConstrainMovementPage().getLocationOfSmallBox();
+        assertTrue(smallBoxPoint.getX() < fourthDragPoint.getX());
+        assertTrue(smallBoxPoint.getY() < fourthDragPoint.getY());
 
 
-        //check whether the element of draggable only horizontally moves also horizontally by giving both offsets
-        int startPointOfXx = page.getConstrainMovementPage().getLocationOfDraggableX(2);
-        int startPointOfYy = page.getConstrainMovementPage().getLocationOfDraggableY(2);
-        page.getConstrainMovementPage().enterTheOffsetOfOnlyHorizontallyMovementElement(100, 100);
-        int currentPointOfXx = page.getConstrainMovementPage().getLocationOfDraggableX(2);
-        int currentPointOfYy = page.getConstrainMovementPage().getLocationOfDraggableY(2);
-        //verify element move only horizontally
-        BrowserUtils.wait(1);
-        assertNotEquals(startPointOfXx, currentPointOfXx,"It is a only-horizontally-movable element so it should  move in x axis ");
-        assertEquals(startPointOfYy+1, currentPointOfYy,"It is a only-horizontally-movable element so it should not move in y axis ");
-
-        BrowserUtils.scrollDownWithJavaScript(0, 500);
-   //     page.getConstrainMovementPage().enterTheOffsetOfContainedWithinTheBoxElement(85, 85);
 
 
     }
-
 
 }

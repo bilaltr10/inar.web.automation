@@ -1,6 +1,5 @@
 package utils;
 
-
 import ControlGroup.ToolBar;
 import DatePicker.DisplayMultipleMonths;
 import Dialog.ModalForm;
@@ -26,132 +25,148 @@ import javax.tools.Tool;
 
 public class Pages {
 
-    private Draggable_DefaultFunction_Page draggable_defaultFunction_page;
-    private HomePage home;
-    private WebAutomationPage webAutomationPage;
-    private Constrain_Movement constrainMovement;
-    private Handles handles_Page;
-    private Events_Page events;
+	private Draggable_DefaultFunction_Page draggable_defaultFunction_page;
 
-    private Accept accept_Page;
-    private Revert_Draggable_Position revertDraggablePosition;
-    private Synchronous_Resize synchronousResize;
-    private Text_Area textArea;
-    private Show_Confirm showConfirm;
-    private Show_Prompt showPrompt;
+	private HomePage home;
 
-    private Serialize serialize;
-    private Normal normal;
-    private AccentFolding accentFolding;
-    private Icons icons;
-    private DownloadDialog downloadDialog;
-    private DisplayMultipleMonths displayMultipleMonths;
-    private ToolBar toolBar;
-    private ModalForm modalForm;
+	private WebAutomationPage webAutomationPage;
 
-    public Pages() {
-        draggable_defaultFunction_page = new Draggable_DefaultFunction_Page();
-        home = new HomePage();
-        webAutomationPage = new WebAutomationPage();
-        constrainMovement = new Constrain_Movement();
-        events = new Events_Page();
-        handles_Page = new Handles();
-        accept_Page = new Accept();
-        revertDraggablePosition = new Revert_Draggable_Position();
-        synchronousResize = new Synchronous_Resize();
-        textArea = new Text_Area();
-        showConfirm = new Show_Confirm();
-        showPrompt = new Show_Prompt();
-        serialize = new Serialize();
-        normal = new Normal();
-        accentFolding = new AccentFolding();
-        icons = new Icons();
-        downloadDialog = new DownloadDialog();
-        displayMultipleMonths = new DisplayMultipleMonths();
-        toolBar = new ToolBar();
-        modalForm = new ModalForm();
-    }
+	private Constrain_Movement constrainMovement;
 
+	private Handles handles_Page;
 
-    public Draggable_DefaultFunction_Page getDraggableDefFuncPage() {
-        return draggable_defaultFunction_page;
-    }
+	private Events_Page events;
 
-    public HomePage getHomePage() {
-        return home;
-    }
+	private Accept accept_Page;
 
-    public WebAutomationPage getWebAutomationPage() {
-        return webAutomationPage;
-    }
+	private Revert_Draggable_Position revertDraggablePosition;
 
-    public Constrain_Movement getConstrainMovementPage() {
+	private Synchronous_Resize synchronousResize;
 
-        return constrainMovement;
-    }
+	private Text_Area textArea;
 
-    public Events_Page getEventsPage() {
-        return events;
-    }
+	private Show_Confirm showConfirm;
 
-    public Handles getTheHandlesPage() {
-        return handles_Page;
-    }
+	private Show_Prompt showPrompt;
 
-    public Accept getAcceptPage() {
-        return accept_Page;
-    }
+	private Serialize serialize;
 
-    public Revert_Draggable_Position getRevertDraggablePosition() {
-        return revertDraggablePosition;
-    }
+	private Normal normal;
 
-    public Synchronous_Resize getSynchronousResize() {
-        return synchronousResize;
-    }
+	private AccentFolding accentFolding;
 
-    public Text_Area getTextArea() {
-        return textArea;
-    }
+	private Icons icons;
 
-    public Show_Prompt getShowPrompt() {
-        return showPrompt;
-    }
+	private DownloadDialog downloadDialog;
 
-    public Show_Confirm getShowConfirm() {
-        return showConfirm;
-    }
+	private DisplayMultipleMonths displayMultipleMonths;
 
-    public Serialize getSerializePage() {
-        return serialize;
-    }
+	private ToolBar toolBar;
 
-    public Normal getNormalPage() {
-        return normal;
-    }
+	private ModalForm modalForm;
 
-    public AccentFolding getAccentFolding() {
-        return accentFolding;
-    }
+	public Pages() {
+		draggable_defaultFunction_page = new Draggable_DefaultFunction_Page();
+		home = new HomePage();
+		webAutomationPage = new WebAutomationPage();
+		constrainMovement = new Constrain_Movement();
+		events = new Events_Page();
+		handles_Page = new Handles();
+		accept_Page = new Accept();
+		revertDraggablePosition = new Revert_Draggable_Position();
+		synchronousResize = new Synchronous_Resize();
+		textArea = new Text_Area();
+		showConfirm = new Show_Confirm();
+		showPrompt = new Show_Prompt();
+		serialize = new Serialize();
+		normal = new Normal();
+		accentFolding = new AccentFolding();
+		icons = new Icons();
+		downloadDialog = new DownloadDialog();
+		displayMultipleMonths = new DisplayMultipleMonths();
+		toolBar = new ToolBar();
+		modalForm = new ModalForm();
+	}
 
-    public Icons getIcons() {
-        return icons;
-    }
+	public Draggable_DefaultFunction_Page getDraggableDefFuncPage() {
+		return draggable_defaultFunction_page;
+	}
 
-    public DownloadDialog getDownloadDialog() {
-        return downloadDialog;
-    }
+	public HomePage getHomePage() {
+		return home;
+	}
 
-    public DisplayMultipleMonths getDisplayMultipleMonths() {
-        return displayMultipleMonths;
-    }
+	public WebAutomationPage getWebAutomationPage() {
+		return webAutomationPage;
+	}
 
-    public ToolBar getToolBar() {
-        return toolBar;
-    }
+	public Constrain_Movement getConstrainMovementPage() {
 
-    public ModalForm getModalForm() {
-        return modalForm;
-    }
+		return constrainMovement;
+	}
+
+	public Events_Page getEventsPage() {
+		return events;
+	}
+
+	public Handles getTheHandlesPage() {
+		return handles_Page;
+	}
+
+	public Accept getAcceptPage() {
+		return accept_Page;
+	}
+
+	public Revert_Draggable_Position getRevertDraggablePosition() {
+		return revertDraggablePosition;
+	}
+
+	public Synchronous_Resize getSynchronousResize() {
+		return synchronousResize;
+	}
+
+	public Text_Area getTextArea() {
+		return textArea;
+	}
+
+	public Show_Prompt getShowPrompt() {
+		return showPrompt;
+	}
+
+	public Show_Confirm getShowConfirm() {
+		return showConfirm;
+	}
+
+	public Serialize getSerializePage() {
+		return serialize;
+	}
+
+	public Normal getNormalPage() {
+		return normal;
+	}
+
+	public AccentFolding getAccentFolding() {
+		return accentFolding;
+	}
+
+	public Icons getIcons() {
+		return icons;
+	}
+
+	public DownloadDialog getDownloadDialog() {
+		return downloadDialog;
+	}
+
+	public DisplayMultipleMonths getDisplayMultipleMonths() {
+		return displayMultipleMonths;
+	}
+
+	public ToolBar getToolBar() {
+		return toolBar;
+	}
+
+	public ModalForm getModalForm() {
+		return modalForm;
+	}
+
 }
-

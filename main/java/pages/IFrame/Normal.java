@@ -8,46 +8,45 @@ import java.security.Key;
 
 public class Normal extends BasePage {
 
+	@FindBy(id = "nestedIframe")
+	private WebElement iFrameElement;
 
+	@FindBy(css = "h1")
+	private WebElement headerInFrame;
 
-@FindBy(id = "nestedIframe")
-private WebElement iFrameElement;
+	@FindBy(css = "a")
+	private WebElement link;
 
-    @FindBy(css = "h1")
-    private WebElement headerInFrame;
+	public void switchToIFrame() {
+		DRIVER.switchTo().frame(iFrameElement);
+	}
 
-    @FindBy(css = "a")
-    private WebElement link;
+	public String getHeaderInFrame() {
+		// switchToIFrame();
+		return headerInFrame.getText();
+	}
 
+	public void clickLinkInFrame() {
+		// switchToIFrame();
+		link.click();
+	}
 
-    public void switchToIFrame(){
-        DRIVER.switchTo().frame(iFrameElement);
-    }
+	public String getLinkTextInFrame() {
+		// switchToIFrame();
+		return link.getText();
+	}
 
-    public String getHeaderInFrame(){
-//        switchToIFrame();
-        return headerInFrame.getText();
-    }
+	public String getLinkInFrame() {
+		// switchToIFrame();
+		return link.getAttribute("href");
+	}
 
-    public void clickLinkInFrame(){
-//        switchToIFrame();
-        link.click();
-    }
+	public void switchToParentFrame() {
+		DRIVER.switchTo().parentFrame();
+	}
 
-    public String getLinkTextInFrame(){
-//        switchToIFrame();
-        return link.getText();
-    }
+	public void clickOnNormalIFrame() {
+		iFrameElement.click();
+	}
 
-    public String getLinkInFrame(){
-//        switchToIFrame();
-        return link.getAttribute("href");
-    }
-
-    public void switchToParentFrame(){
-        DRIVER.switchTo().parentFrame();
-    }
-    public void clickOnNormalIFrame() {
-        iFrameElement.click();
-    }
 }

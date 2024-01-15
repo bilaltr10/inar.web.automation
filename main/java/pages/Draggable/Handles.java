@@ -6,58 +6,58 @@ import pages.BasePage;
 
 public class Handles extends BasePage {
 
-    @FindBy(xpath = "//a[text()='Handles']")
-    private WebElement handlesWebElement;
-    @FindBy(id = "draggable13")
-    private WebElement draggable13Element;
+	@FindBy(xpath = "//a[text()='Handles']")
+	private WebElement handlesWebElement;
 
-    @FindBy(id = "draggable14")
-    private WebElement draggable14Element;
+	@FindBy(id = "draggable13")
+	private WebElement draggable13Element;
 
-    @FindBy(xpath = "//*[@id=\"draggable14\"]/p[2]")
-    private WebElement draggable14NonMovableElement;
-    @FindBy(xpath = "//*[@id=\"draggable14\"]/p[1]")
-    private WebElement draggable14MovableElement;
+	@FindBy(id = "draggable14")
+	private WebElement draggable14Element;
 
-    @FindBy(xpath = "//*[@id=\"draggable13\"]/p")
-    private WebElement draggable13MovableElement;
+	@FindBy(xpath = "//*[@id=\"draggable14\"]/p[2]")
+	private WebElement draggable14NonMovableElement;
 
-    public void clickOnHandlesPage() {
-        handlesWebElement.click();
-    }
+	@FindBy(xpath = "//*[@id=\"draggable14\"]/p[1]")
+	private WebElement draggable14MovableElement;
 
+	@FindBy(xpath = "//*[@id=\"draggable13\"]/p")
+	private WebElement draggable13MovableElement;
 
-    public void moveElement13() {
-        actions.dragAndDropBy(draggable13MovableElement, 100, 100).perform();
-    }
+	public void clickOnHandlesPage() {
+		handlesWebElement.click();
+	}
 
-    public void moveElement13ByNonMovablePart() {
-        actions.dragAndDropBy(draggable13Element, 100, 100).perform();
-    }
+	public void moveElement13() {
+		actions.dragAndDropBy(draggable13MovableElement, 100, 100).perform();
+	}
 
-    public int getLocationOfDraggable13X() {
-        return draggable13Element.getLocation().x;
-    }
+	public void moveElement13ByNonMovablePart() {
+		actions.dragAndDropBy(draggable13Element, 100, 100).perform();
+	}
 
-    public int getLocationOfDraggable13Y() {
-        return draggable13Element.getLocation().y;
-    }
+	public int getLocationOfDraggable13X() {
+		return draggable13Element.getLocation().x;
+	}
 
+	public int getLocationOfDraggable13Y() {
+		return draggable13Element.getLocation().y;
+	}
 
-    public void draggable14NonMovableElement() {
-        actions.dragAndDropBy(draggable14NonMovableElement, 100, 100).perform();
-    }
+	public void draggable14NonMovableElement() {
+		actions.dragAndDropBy(draggable14NonMovableElement, 100, 100).perform();
+	}
 
-    public void moveElement14ByMovablePart() {
-        actions.dragAndDropBy(draggable14MovableElement, 100, 100).perform();
-    }
+	public void moveElement14ByMovablePart() {
+		actions.dragAndDropBy(draggable14MovableElement, 100, 100).perform();
+	}
 
-    public int getLocationOfDraggable14X() {
-        return draggable14Element.getLocation().x;
-    }
+	public int getLocationOfDraggable14X() {
+		return draggable14Element.getLocation().x;
+	}
 
-    public int getLocationOfDraggable14Y() {
-        return draggable14Element.getLocation().y;
-    }
+	public int getLocationOfDraggable14Y() {
+		return draggable14Element.getLocation().y;
+	}
 
 }

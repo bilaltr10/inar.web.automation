@@ -11,39 +11,37 @@ import java.util.List;
 
 public class AccentFolding extends BasePage {
 
-    @FindBy(xpath = "//a[text()='Accent Folding']")
-    private WebElement accentFoldingElement;
+	@FindBy(xpath = "//a[text()='Accent Folding']")
+	private WebElement accentFoldingElement;
 
-    @FindBy(id = "developer-accentFolding")
-    private WebElement developerNamesElement;
+	@FindBy(id = "developer-accentFolding")
+	private WebElement developerNamesElement;
 
-    @FindBy(xpath = "//ul[@id='ui-id-40']/li/div")
-    private List<WebElement> namesOfDeveloper;
+	@FindBy(xpath = "//ul[@id='ui-id-40']/li/div")
+	private List<WebElement> namesOfDeveloper;
 
+	public void clickOnAccentFoldingElement() {
+		accentFoldingElement.click();
+	}
 
-    public void clickOnAccentFoldingElement() {
-        accentFoldingElement.click();
-    }
+	public void addInput(String keys) {
+		clearInput();
+		developerNamesElement.sendKeys(keys);
+		BrowserUtils.wait(1.5);
+	}
 
-    public void addInput(String keys) {
-        clearInput();
-        developerNamesElement.sendKeys(keys);
-        BrowserUtils.wait(1.5);
-    }
+	public void clearInput() {
+		developerNamesElement.clear();
+	}
 
-    public void clearInput() {
-        developerNamesElement.clear();
-    }
+	public List<String> namesOfDevelopers() {
 
-    public List<String> namesOfDevelopers() {
+		List<String> list = new ArrayList<>();
+		for (int i = 0; i < namesOfDeveloper.size(); i++) {
+			list.add(namesOfDeveloper.get(i).getText());
+		}
+		return list;
 
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < namesOfDeveloper.size(); i++) {
-            list.add(namesOfDeveloper.get(i).getText());
-        }
-return list;
-
-    }
-
+	}
 
 }

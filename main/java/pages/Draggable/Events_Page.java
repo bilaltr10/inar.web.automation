@@ -12,50 +12,48 @@ import static java.time.Clock.tick;
 
 public class Events_Page extends BasePage {
 
-    @FindBy(xpath = "//a[contains(text(),'Events')]")
-    private WebElement eventsWebelement;
+	@FindBy(xpath = "//a[contains(text(),'Events')]")
+	private WebElement eventsWebelement;
 
-    @FindBy(id = "draggable12")
-    private WebElement draggableWebelement;
+	@FindBy(id = "draggable12")
+	private WebElement draggableWebelement;
 
-    @FindBy(id = "event-start")
-    private WebElement eventStartedElement;
-    @FindBy(xpath = "//*[@id=\"event-start\"]/span[2]")
-    private WebElement countOfEventStartInvokedElement;
+	@FindBy(id = "event-start")
+	private WebElement eventStartedElement;
 
-    @FindBy(xpath = "//*[@id=\"event-drag\"]/span[2]")
-    private WebElement countOfDragInvokedElement;
+	@FindBy(xpath = "//*[@id=\"event-start\"]/span[2]")
+	private WebElement countOfEventStartInvokedElement;
 
-    @FindBy(xpath = "//*[@id=\"event-stop\"]/span[2]")
-    private WebElement countOfStopInvoked;
+	@FindBy(xpath = "//*[@id=\"event-drag\"]/span[2]")
+	private WebElement countOfDragInvokedElement;
 
-    private int xOffset;
-    private int yOffset;
+	@FindBy(xpath = "//*[@id=\"event-stop\"]/span[2]")
+	private WebElement countOfStopInvoked;
 
-    public void clickOnEventsPage() {
-        eventsWebelement.click();
-    }
+	private int xOffset;
 
-    public void dropAndDragWebElement(int xOffset, int yOffset) {
-        this.xOffset = xOffset;
-        this.yOffset = yOffset;
-        actions.dragAndDropBy(draggableWebelement, xOffset, yOffset).perform();
-    }
+	private int yOffset;
 
-    public int numberOfStartInvocation() {
-        return Integer.parseInt(countOfEventStartInvokedElement.getText());
-    }
+	public void clickOnEventsPage() {
+		eventsWebelement.click();
+	}
 
-    public int numberOfDragInvokation() {
-        return Math.abs(xOffset + yOffset);
-    }
+	public void dropAndDragWebElement(int xOffset, int yOffset) {
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;
+		actions.dragAndDropBy(draggableWebelement, xOffset, yOffset).perform();
+	}
 
-    public int numberOfStopInvocation() {
-        return Integer.parseInt(countOfStopInvoked.getText());
-    }
+	public int numberOfStartInvocation() {
+		return Integer.parseInt(countOfEventStartInvokedElement.getText());
+	}
 
+	public int numberOfDragInvokation() {
+		return Math.abs(xOffset + yOffset);
+	}
 
-
+	public int numberOfStopInvocation() {
+		return Integer.parseInt(countOfStopInvoked.getText());
+	}
 
 }
-

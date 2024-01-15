@@ -6,38 +6,38 @@ import org.openqa.selenium.support.FindBy;
 import pages.BasePage;
 
 public class Show_Prompt extends BasePage {
-    Alert alert;
 
-    @FindBy(xpath = "//button[text()='Show Prompt']")
-    private WebElement showPromptElement;
+	Alert alert;
 
-    public void clickOnShowPrompt() {
-        showPromptElement.click();
-    }
+	@FindBy(xpath = "//button[text()='Show Prompt']")
+	private WebElement showPromptElement;
 
-    public void switchToAlert() {
-        alert = DRIVER.switchTo().alert();
-    }
+	public void clickOnShowPrompt() {
+		showPromptElement.click();
+	}
 
-    public String getText() {
-        switchToAlert();
-        return alert.getText();
-    }
+	public void switchToAlert() {
+		alert = DRIVER.switchTo().alert();
+	}
 
-    public void sendKeys(String keys) {
-        switchToAlert();
-        alert.sendKeys(keys);
-    }
+	public String getText() {
+		switchToAlert();
+		return alert.getText();
+	}
 
-    public void acceptTheAlert() {
-        switchToAlert();
-        alert.accept();
-    }
+	public void sendKeys(String keys) {
+		switchToAlert();
+		alert.sendKeys(keys);
+	}
 
-    public void cancelTheAlert() {
-        switchToAlert();
-        alert.dismiss();
-    }
+	public void acceptTheAlert() {
+		switchToAlert();
+		alert.accept();
+	}
 
+	public void cancelTheAlert() {
+		switchToAlert();
+		alert.dismiss();
+	}
 
 }

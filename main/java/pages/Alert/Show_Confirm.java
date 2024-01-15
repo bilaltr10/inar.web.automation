@@ -9,31 +9,33 @@ import utils.Driver;
 import static org.openqa.selenium.logging.LogType.DRIVER;
 
 public class Show_Confirm extends BasePage {
-    Alert alert;
-    @FindBy(xpath = "//button[text()='Show Confirm']")
-    private WebElement showConfirmElement;
 
+	Alert alert;
 
-    public void clickOnShowConfirmElement() {
-        showConfirmElement.click();
-    }
+	@FindBy(xpath = "//button[text()='Show Confirm']")
+	private WebElement showConfirmElement;
 
-    public void switchToAlert() {
-        alert = DRIVER.switchTo().alert();
-    }
-      public String getTheText() {
-        switchToAlert();
-        return alert.getText();
-    }
+	public void clickOnShowConfirmElement() {
+		showConfirmElement.click();
+	}
 
-    public void acceptTheAlert() {
-        switchToAlert();
-        alert.accept();
-    }
+	public void switchToAlert() {
+		alert = DRIVER.switchTo().alert();
+	}
 
-    public void cancelTheAlert() {
-        switchToAlert();
-        alert.dismiss();
-    }
+	public String getTheText() {
+		switchToAlert();
+		return alert.getText();
+	}
+
+	public void acceptTheAlert() {
+		switchToAlert();
+		alert.accept();
+	}
+
+	public void cancelTheAlert() {
+		switchToAlert();
+		alert.dismiss();
+	}
 
 }

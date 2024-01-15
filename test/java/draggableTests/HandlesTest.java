@@ -8,69 +8,71 @@ import utils.Pages;
 
 public class HandlesTest extends Hooks {
 
-    Pages page = new Pages();
+	Pages page = new Pages();
 
-    int xOffsetAsStart;
-    int yOffsetAsStart;
-    int xOffsetAsCurrent;
-    int yOffSetAsCurrent;
+	int xOffsetAsStart;
 
-    public void metot() {
+	int yOffsetAsStart;
 
-    }
-    @Test
-    public void handlesTest() {
+	int xOffsetAsCurrent;
 
-        page.getHomePage().clickOnWebAutomationLink();
-        page.getWebAutomationPage().clickOnDraggableElement();
-        BrowserUtils.wait(2);
-        page.getTheHandlesPage().clickOnHandlesPage();
-        BrowserUtils.scrollDownWithJavaScript(0,300);
+	int yOffSetAsCurrent;
 
-        // Element -13 must move;
-        xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
-        yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
-        page.getTheHandlesPage().moveElement13();
-        BrowserUtils.wait(2);
-        xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13X();
-        yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13Y();
+	public void metot() {
 
-        Assertions.assertNotEquals(xOffsetAsStart, xOffsetAsCurrent);
-        Assertions.assertNotEquals(yOffsetAsStart, yOffSetAsCurrent);
+	}
 
-//        xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
-//        yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
-//        page.getTheHandlesPage().moveElement13ByNonMovablePart();
-//        BrowserUtils.wait(2);
-//        xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13X();
-//        yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13Y();
-//
-//        Assertions.assertEquals(xOffsetAsStart, xOffsetAsCurrent);
-//        Assertions.assertEquals(yOffsetAsStart, yOffSetAsCurrent);
+	@Test
+	public void handlesTest() {
 
-        BrowserUtils.wait(2);
+		page.getHomePage().clickOnWebAutomationLink();
+		page.getWebAutomationPage().clickOnDraggableElement();
+		BrowserUtils.wait(2);
+		page.getTheHandlesPage().clickOnHandlesPage();
+		BrowserUtils.scrollDownWithJavaScript(0, 300);
 
-        xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14X();
-        yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14Y();
-        page.getTheHandlesPage().draggable14NonMovableElement();
-        BrowserUtils.wait(2);
-        xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14X();
-        yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14Y();
+		// Element -13 must move;
+		xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
+		yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
+		page.getTheHandlesPage().moveElement13();
+		BrowserUtils.wait(2);
+		xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13X();
+		yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13Y();
 
-        Assertions.assertEquals(xOffsetAsStart, xOffsetAsCurrent);
-        Assertions.assertEquals(yOffsetAsStart, yOffSetAsCurrent);
+		Assertions.assertNotEquals(xOffsetAsStart, xOffsetAsCurrent);
+		Assertions.assertNotEquals(yOffsetAsStart, yOffSetAsCurrent);
 
+		// xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13X();
+		// yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable13Y();
+		// page.getTheHandlesPage().moveElement13ByNonMovablePart();
+		// BrowserUtils.wait(2);
+		// xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13X();
+		// yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable13Y();
+		//
+		// Assertions.assertEquals(xOffsetAsStart, xOffsetAsCurrent);
+		// Assertions.assertEquals(yOffsetAsStart, yOffSetAsCurrent);
 
-        xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14X();
-        yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14Y();
-        page.getTheHandlesPage().moveElement14ByMovablePart();
-        BrowserUtils.wait(2);
-        xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14X();
-        yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14Y();
+		BrowserUtils.wait(2);
 
-        Assertions.assertNotEquals(xOffsetAsStart, xOffsetAsCurrent);
-        Assertions.assertNotEquals(yOffsetAsStart, yOffSetAsCurrent);
-    }
+		xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14X();
+		yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14Y();
+		page.getTheHandlesPage().draggable14NonMovableElement();
+		BrowserUtils.wait(2);
+		xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14X();
+		yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14Y();
 
+		Assertions.assertEquals(xOffsetAsStart, xOffsetAsCurrent);
+		Assertions.assertEquals(yOffsetAsStart, yOffSetAsCurrent);
+
+		xOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14X();
+		yOffsetAsStart = page.getTheHandlesPage().getLocationOfDraggable14Y();
+		page.getTheHandlesPage().moveElement14ByMovablePart();
+		BrowserUtils.wait(2);
+		xOffsetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14X();
+		yOffSetAsCurrent = page.getTheHandlesPage().getLocationOfDraggable14Y();
+
+		Assertions.assertNotEquals(xOffsetAsStart, xOffsetAsCurrent);
+		Assertions.assertNotEquals(yOffsetAsStart, yOffSetAsCurrent);
+	}
 
 }

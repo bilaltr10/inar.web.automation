@@ -9,117 +9,117 @@ import utils.BrowserUtils;
 import java.util.List;
 
 public class DisplayMultipleMonths extends HomePage {
-    @FindBy(xpath = "//a[text()='Display Multiple Months']")
-    private WebElement displayMultipleMonthsElements;
 
-    @FindBy(id = "datepicker-multiple-months")
-    private WebElement writeableDateElement;
-    //isplayMultipleMonthsTest
-    @FindBy(id = "ui-datepicker-div")
-    private WebElement calenderBarElement;
+	@FindBy(xpath = "//a[text()='Display Multiple Months']")
+	private WebElement displayMultipleMonthsElements;
 
-    @FindBy(css = ".ui-datepicker-month")
-    private List<WebElement> monthsVisibleInCalender;
+	@FindBy(id = "datepicker-multiple-months")
+	private WebElement writeableDateElement;
 
-    @FindBy(css = "//*[@id=\"ui-datepicker-div\"]/div[1]/table/tbody")
-    private WebElement currentDateInfos;
+	// isplayMultipleMonthsTest
+	@FindBy(id = "ui-datepicker-div")
+	private WebElement calenderBarElement;
 
-    @FindBy(css = ".ui-datepicker-group-first")
-    private WebElement currentChosenDay;
+	@FindBy(css = ".ui-datepicker-month")
+	private List<WebElement> monthsVisibleInCalender;
 
-    @FindBy(css = ".ui-icon.ui-icon-circle-triangle-w")
-    private WebElement prevButtonElement;
+	@FindBy(css = "//*[@id=\"ui-datepicker-div\"]/div[1]/table/tbody")
+	private WebElement currentDateInfos;
 
-    @FindBy(css = ".ui-icon.ui-icon-circle-triangle-e")
-    private WebElement nextButtonElement;
+	@FindBy(css = ".ui-datepicker-group-first")
+	private WebElement currentChosenDay;
 
-    @FindBy(xpath = "//button[text()='Done']")
-    private WebElement doneElement;
+	@FindBy(css = ".ui-icon.ui-icon-circle-triangle-w")
+	private WebElement prevButtonElement;
 
-    @FindBy(xpath = "//button[text()='Today']")
-    private WebElement todayElement;
+	@FindBy(css = ".ui-icon.ui-icon-circle-triangle-e")
+	private WebElement nextButtonElement;
 
-    public void clickOnDisplayMultipleMonthsElements() {
-        displayMultipleMonthsElements.click();
-    }
+	@FindBy(xpath = "//button[text()='Done']")
+	private WebElement doneElement;
 
-    public void enterDate(String month, String day, String year) {
-        BrowserUtils.wait(0.75);
-        String date = month + "/" + day + "/" + year;
-        writeableDateElement.sendKeys(date);
-        BrowserUtils.wait(0.75);
+	@FindBy(xpath = "//button[text()='Today']")
+	private WebElement todayElement;
 
-    }
+	public void clickOnDisplayMultipleMonthsElements() {
+		displayMultipleMonthsElements.click();
+	}
 
-    public boolean isCalenderVisible() {
-        return calenderBarElement.isDisplayed();
-    }
+	public void enterDate(String month, String day, String year) {
+		BrowserUtils.wait(0.75);
+		String date = month + "/" + day + "/" + year;
+		writeableDateElement.sendKeys(date);
+		BrowserUtils.wait(0.75);
 
-    public int isMonthsMultiple() {
-        return monthsVisibleInCalender.size();
-    }
+	}
 
-    public void clickOnWriteableDateElement() {
-        writeableDateElement.click();
-    }
+	public boolean isCalenderVisible() {
+		return calenderBarElement.isDisplayed();
+	}
 
-    public boolean isCurrentDaySelected() {
-        return currentChosenDay.isEnabled();
-    }
+	public int isMonthsMultiple() {
+		return monthsVisibleInCalender.size();
+	}
 
-    public String selectedDayMonthYear() {
-        return selectedMonth()+"/"+selectedDay() + "/" + selectedYear();
-    }
+	public void clickOnWriteableDateElement() {
+		writeableDateElement.click();
+	}
 
-    public String selectedMonth() {
-        return Integer.parseInt(currentChosenDay.
-                findElement(By.cssSelector(" .ui-datepicker-current-day")).getAttribute("data-month")) + 1 + "";
-    }
+	public boolean isCurrentDaySelected() {
+		return currentChosenDay.isEnabled();
+	}
 
-    public String selectedDay() {
-        return currentChosenDay.findElement(By.cssSelector(".ui-state-default.ui-state-active")).
-                getAttribute("data-date");
-    }
+	public String selectedDayMonthYear() {
+		return selectedMonth() + "/" + selectedDay() + "/" + selectedYear();
+	}
 
-    public String selectedYear() {
-        return currentChosenDay.findElement(By.cssSelector(" .ui-datepicker-current-day")).getAttribute("data-year");
-    }
+	public String selectedMonth() {
+		return Integer.parseInt(
+				currentChosenDay.findElement(By.cssSelector(" .ui-datepicker-current-day")).getAttribute("data-month"))
+				+ 1 + "";
+	}
 
+	public String selectedDay() {
+		return currentChosenDay.findElement(By.cssSelector(".ui-state-default.ui-state-active"))
+			.getAttribute("data-date");
+	}
 
-    public void clickOnPrevElement() {
-        prevButtonElement.click();
-    }
+	public String selectedYear() {
+		return currentChosenDay.findElement(By.cssSelector(" .ui-datepicker-current-day")).getAttribute("data-year");
+	}
 
-    public void clickOnNextElement() {
-        nextButtonElement.click();
-    }
+	public void clickOnPrevElement() {
+		prevButtonElement.click();
+	}
 
-    public void clickOnDoneElement() {
-        doneElement.click();
-    }
+	public void clickOnNextElement() {
+		nextButtonElement.click();
+	}
 
-    public void clickOnTodayElement() {
-        todayElement.click();
-    }
+	public void clickOnDoneElement() {
+		doneElement.click();
+	}
 
-    public String monthOnLeft() {
-        return calenderBarElement.findElement(By.cssSelector(".ui-datepicker-group.ui-datepicker-group-first .ui-datepicker-month")).getText();
-    }
+	public void clickOnTodayElement() {
+		todayElement.click();
+	}
 
-    public String monthOnMiddle() {
-      return calenderBarElement.findElement(By.cssSelector(".ui-datepicker-group.ui-datepicker-group-middle .ui-datepicker-month")).getText();
-    }
+	public String monthOnLeft() {
+		return calenderBarElement
+			.findElement(By.cssSelector(".ui-datepicker-group.ui-datepicker-group-first .ui-datepicker-month"))
+			.getText();
+	}
 
-    public String monthOnRight() {
-        return calenderBarElement.findElement(By.cssSelector(".ui-datepicker-group.ui-datepicker-group-last .ui-datepicker-month")).getText();
-    }
+	public String monthOnMiddle() {
+		return calenderBarElement
+			.findElement(By.cssSelector(".ui-datepicker-group.ui-datepicker-group-middle .ui-datepicker-month"))
+			.getText();
+	}
+
+	public String monthOnRight() {
+		return calenderBarElement
+			.findElement(By.cssSelector(".ui-datepicker-group.ui-datepicker-group-last .ui-datepicker-month"))
+			.getText();
+	}
 
 }
-
-
-
-
-
-
-
-

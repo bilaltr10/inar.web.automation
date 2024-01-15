@@ -1,9 +1,14 @@
 package utils;
 
 
-import org.checkerframework.checker.units.qual.A;
+import ControlGroup.ToolBar;
+import DatePicker.DisplayMultipleMonths;
+import Dialog.ModalForm;
+import Menu.Icons;
+import ProgressBar.DownloadDialog;
 import pages.Alert.Show_Confirm;
 import pages.Alert.Show_Prompt;
+import pages.AutoComplete.AccentFolding;
 import pages.Draggable.Constrain_Movement;
 import pages.Draggable.Draggable_DefaultFunction_Page;
 import pages.Draggable.Events_Page;
@@ -16,6 +21,8 @@ import pages.Resizable.Synchronous_Resize;
 import pages.Resizable.Text_Area;
 import pages.Selectable.Serialize;
 import pages.WebAutomationPage;
+
+import javax.tools.Tool;
 
 public class Pages {
 
@@ -35,6 +42,12 @@ public class Pages {
 
     private Serialize serialize;
     private Normal normal;
+    private AccentFolding accentFolding;
+    private Icons icons;
+    private DownloadDialog downloadDialog;
+    private DisplayMultipleMonths displayMultipleMonths;
+    private ToolBar toolBar;
+    private ModalForm modalForm;
 
     public Pages() {
         draggable_defaultFunction_page = new Draggable_DefaultFunction_Page();
@@ -51,7 +64,12 @@ public class Pages {
         showPrompt = new Show_Prompt();
         serialize = new Serialize();
         normal = new Normal();
-
+        accentFolding = new AccentFolding();
+        icons = new Icons();
+        downloadDialog = new DownloadDialog();
+        displayMultipleMonths = new DisplayMultipleMonths();
+        toolBar = new ToolBar();
+        modalForm = new ModalForm();
     }
 
 
@@ -110,6 +128,30 @@ public class Pages {
 
     public Normal getNormalPage() {
         return normal;
+    }
+
+    public AccentFolding getAccentFolding() {
+        return accentFolding;
+    }
+
+    public Icons getIcons() {
+        return icons;
+    }
+
+    public DownloadDialog getDownloadDialog() {
+        return downloadDialog;
+    }
+
+    public DisplayMultipleMonths getDisplayMultipleMonths() {
+        return displayMultipleMonths;
+    }
+
+    public ToolBar getToolBar() {
+        return toolBar;
+    }
+
+    public ModalForm getModalForm() {
+        return modalForm;
     }
 }
 
